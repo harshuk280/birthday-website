@@ -4,7 +4,7 @@ function scrollToGallery() {
   });
 }
 
-const music = document.getElementById("bg-music");
+const music = Happy-Birthday-Instrumental.mp3;
 
 function toggleMusic() {
   if (music.paused) {
