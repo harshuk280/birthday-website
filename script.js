@@ -26,7 +26,7 @@ document.body.addEventListener("click", function () {
 window.onload = function() {
   setTimeout(() => {
     alert("🎉 Happy Birthday Mansi ❤️\nWishing you endless happiness, success, love & beautiful memories!");
-  }, 1200);
+  }, 1500);
 };
 
 /* Optional sparkle effect on mouse move */
