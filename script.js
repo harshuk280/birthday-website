@@ -1,11 +1,22 @@
-function scrollToGallery() {
-  document.getElementById("gallery").scrollIntoView({
-    behavior: "smooth"
-  });
-}
-
 const music = document.getElementById("bg-music");
-
+window.addEventListener("load", async()=> {
+  try{
+    music.volume=1;
+    await music.play();
+  }catch (err)){
+    const startMusic=async()=> {
+      try{
+        await music.play();
+      } catch(e) {
+        console.log("Playback blocked:",e);
+      }
+      document.removeEventListener("click",startMusic);
+       document.removeEventListener("touchstart",startMusic);
+    };
+     document.addEventListener("click",startMusic);
+     document.addEventListener("touchstart",startMusic);
+  }
+});
 /* Music button toggle */
 function toggleMusic() {
   if (music.paused) {
@@ -14,7 +25,12 @@ function toggleMusic() {
     music.pause();
   }
 }
-
+/* Smooth scroll */
+function scrollToGallery() {
+  document.getElementById("gallery").scrollIntoView({
+    behavior: "smooth"
+  });
+}
 /* Auto play after first user interaction (browser-friendly) */
 document.body.addEventListener("click", function () {
   music.play().catch(function(error) {
